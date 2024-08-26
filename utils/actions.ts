@@ -10,7 +10,6 @@ import {
 } from "./schemas";
 import { deleteImage, uploadImage } from "./supabase";
 import { revalidatePath } from "next/cache";
-import { Cousine } from "next/font/google";
 import type { Cart } from "@prisma/client";
 
 const renderError = (error: unknown) => {
