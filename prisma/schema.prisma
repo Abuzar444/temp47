@@ -24,7 +24,7 @@ model Product {
 }
 
 model Favorite {
-  id        String   @id @map("_id")
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   clerkId   String
   product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
@@ -33,7 +33,7 @@ model Favorite {
 }
 
 model Review {
-  id             String   @id @map("_id")
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   clerkId        String
   rating         Int
   comment        String
@@ -46,7 +46,7 @@ model Review {
 }
 
 model Cart {
-  id             String     @id @map("_id")
+ id          String     @id @default(auto()) @map("_id") @db.ObjectId
   clerkId        String
   cartItems      CartItem[]
   numItemsInCart Int        @default(0)
@@ -60,7 +60,7 @@ model Cart {
 }
 
 model CartItem {
-  id        String   @id @map("_id")
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
   cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
